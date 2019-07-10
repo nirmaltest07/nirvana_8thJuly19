@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="SOAP Test Suite" duration-ms="3706" started-at="2019-07-09T12:33:29Z" finished-at="2019-07-09T12:33:33Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:soap.runner.SoapRunner@2f686d1f]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="AON Test" duration-ms="3706" started-at="2019-07-09T12:33:29Z" finished-at="2019-07-09T12:33:33Z">
+      <class name="soap.runner.SoapRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:soap.runner.SoapRunner@2f686d1f]" name="setUpClass" is-config="true" duration-ms="426" started-at="2019-07-09T12:33:29Z" finished-at="2019-07-09T12:33:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:soap.runner.SoapRunner@2f686d1f]" name="feature" duration-ms="3183" started-at="2019-07-09T12:33:29Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-07-09T12:33:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[A SOAP Example using AonAware]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:soap.runner.SoapRunner@2f686d1f]" name="feature" duration-ms="5" started-at="2019-07-09T12:33:33Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-07-09T12:33:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Daily car maintenance]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:soap.runner.SoapRunner@2f686d1f]" name="tearDownClass" is-config="true" duration-ms="12" started-at="2019-07-09T12:33:33Z" finished-at="2019-07-09T12:33:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- soap.runner.SoapRunner -->
+    </test> <!-- AON Test -->
+  </suite> <!-- SOAP Test Suite -->
+</testng-results>

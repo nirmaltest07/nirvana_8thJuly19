@@ -1,0 +1,454 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "comments": [
+          {
+            "line": 3,
+            "value": "#  NOTE : YOU CAN RIGHT CLICK and RUN THE SCENARIOS DIRECTLY (if your IDE supports)"
+          },
+          {
+            "line": 4,
+            "value": "#  This feature is based on a sample web API found in google. It is observed that if we hit"
+          },
+          {
+            "line": 5,
+            "value": "#  if it is more often hit then they will return a message as \"Object Moved\" and you will see failures"
+          },
+          {
+            "line": 6,
+            "value": "#  This DictService API takes any word as input in envelope and returns definition from the dictionary (same word) as response"
+          }
+        ],
+        "line": 9,
+        "name": "AON 1.0 - AON test for status check",
+        "description": "",
+        "id": "a-soap-example-using-aonaware;aon-1.0---aon-test-for-status-check",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 85645530,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I have my end point as \"http://services.aonaware.com/DictService/DictService.asmx\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://services.aonaware.com/DictService/DictService.asmx",
+                  "offset": 24
+                }
+              ],
+              "location": "APISteps.iHaveMyEndPoint(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 840724,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I have the request headers defined as follows",
+            "match": {
+              "location": "APISteps.iGetHeaderValues(String,String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "SOAPAction",
+                  "Define"
+                ],
+                "line": 12
+              },
+              {
+                "cells": [
+                  "Content-Type",
+                  "application/soap+xml; charset\u003dUTF-8;"
+                ],
+                "line": 13
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 427692,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I have the soap envelope defined in \"soapuiautomation/soap/resources/leg.xml\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "soapuiautomation/soap/resources/leg.xml",
+                  "offset": 37
+                }
+              ],
+              "location": "APISteps.iHaveTheBody(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1661669060,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I post the request body as XML",
+            "match": {
+              "location": "APISteps.iSendXMLToEndpoint()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2318644,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I verify the response status code as \"200\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 38
+                }
+              ],
+              "location": "APISteps.iVerifyTheResponse(int)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 8,
+            "name": "@smoke"
+          }
+        ]
+      },
+      {
+        "line": 32,
+        "name": "AON 1.1 - AON test for response comparision",
+        "description": "",
+        "id": "a-soap-example-using-aonaware;aon-1.1---aon-test-for-response-comparision;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2218632,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I have my \"AON\" API ready",
+            "match": {
+              "arguments": [
+                {
+                  "val": "AON",
+                  "offset": 11
+                }
+              ],
+              "location": "APISteps.iGetPathValues(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 85580,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "I have the request headers defined as follows",
+            "match": {
+              "location": "APISteps.iGetHeaderValues(String,String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "SOAPAction",
+                  "Define"
+                ],
+                "line": 24
+              },
+              {
+                "cells": [
+                  "Content-Type",
+                  "application/soap+xml; charset\u003dUTF-8;"
+                ],
+                "line": 25
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 522440,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "I have the soap envelope defined in \"soapuiautomation/soap/resources/hand.xml\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "soapuiautomation/soap/resources/hand.xml",
+                  "offset": 37
+                }
+              ],
+              "location": "APISteps.iHaveTheBody(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 564612912,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "I post the request body as XML",
+            "match": {
+              "location": "APISteps.iSendXMLToEndpoint()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 21165219,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "I verify the AON response contains the word \"hand\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "hand",
+                  "offset": 45
+                }
+              ],
+              "location": "AONSteps.iVerifyAONResponse(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 20,
+            "name": "@regression"
+          },
+          {
+            "line": 1,
+            "name": "@aon"
+          }
+        ]
+      },
+      {
+        "line": 33,
+        "name": "AON 1.1 - AON test for response comparision",
+        "description": "",
+        "id": "a-soap-example-using-aonaware;aon-1.1---aon-test-for-response-comparision;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 258431,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I have my \"AON\" API ready",
+            "match": {
+              "arguments": [
+                {
+                  "val": "AON",
+                  "offset": 11
+                }
+              ],
+              "location": "APISteps.iGetPathValues(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 39036,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "I have the request headers defined as follows",
+            "match": {
+              "location": "APISteps.iGetHeaderValues(String,String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "SOAPAction",
+                  "Define"
+                ],
+                "line": 24
+              },
+              {
+                "cells": [
+                  "Content-Type",
+                  "application/soap+xml; charset\u003dUTF-8;"
+                ],
+                "line": 25
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 130842,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "I have the soap envelope defined in \"soapuiautomation/soap/resources/leg.xml\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "soapuiautomation/soap/resources/leg.xml",
+                  "offset": 37
+                }
+              ],
+              "location": "APISteps.iHaveTheBody(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 793670572,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "I post the request body as XML",
+            "match": {
+              "location": "APISteps.iSendXMLToEndpoint()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2346423,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "I verify the AON response contains the word \"leg\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "leg",
+                  "offset": 45
+                }
+              ],
+              "location": "AONSteps.iVerifyAONResponse(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 20,
+            "name": "@regression"
+          },
+          {
+            "line": 1,
+            "name": "@aon"
+          }
+        ]
+      }
+    ],
+    "name": "A SOAP Example using AonAware",
+    "description": "",
+    "id": "a-soap-example-using-aonaware",
+    "keyword": "Feature",
+    "uri": "AonAware.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@aon"
+      }
+    ]
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 5,
+        "name": "Fuelling",
+        "description": "",
+        "id": "daily-car-maintenance;fuelling",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 73175,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "a car with an empty gas tank",
+            "match": {
+              "location": "City.a_car_with_an_empty_gas_tank()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 59510,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "you fill it with 50 litres of fuel",
+            "match": {
+              "arguments": [
+                {
+                  "val": "50",
+                  "offset": 17
+                }
+              ],
+              "location": "City.you_fill_it_with_litres_of_fuel(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 49846,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "the tank contains 50 litres",
+            "match": {
+              "arguments": [
+                {
+                  "val": "50",
+                  "offset": 18
+                }
+              ],
+              "location": "City.the_tank_contains_litres(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Daily car maintenance",
+    "description": "Cars need maintenance",
+    "id": "daily-car-maintenance",
+    "keyword": "Feature",
+    "uri": "city.feature"
+  }
+]
