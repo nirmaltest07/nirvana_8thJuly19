@@ -1,7 +1,7 @@
     
 node{
   stage('SCM Checkout') {
-    git 'https://github.com/nirmaltest07/nirvana_8thJuly19/nirwanaWeb/Jenkinsfile'
+    git 'https://github.com/nirmaltest07/nirvana_8thJuly19/nirwanaWeb'
     }
     stage('Compile-Package'){
     def mvnHome = tool name: 'Maven 3.6.1', type: 'maven'
