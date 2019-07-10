@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Web Test Suite" duration-ms="7620" started-at="2019-07-09T12:57:46Z" finished-at="2019-07-09T12:57:54Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="WebRunner.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:web.runner.WebRunner@73ad2d6]" name="feature" class="web.runner.WebRunner"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Login to CRM" duration-ms="7620" started-at="2019-07-09T12:57:46Z" finished-at="2019-07-09T12:57:54Z">
+      <class name="web.runner.WebRunner">
+        <test-method status="PASS" signature="connectToSauceLab()[pri:0, instance:web.runner.WebRunner@73ad2d6]" name="connectToSauceLab" is-config="true" duration-ms="1862" started-at="2019-07-09T12:57:44Z" finished-at="2019-07-09T12:57:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- connectToSauceLab -->
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:web.runner.WebRunner@73ad2d6]" name="setUpClass" is-config="true" duration-ms="142" started-at="2019-07-09T12:57:46Z" finished-at="2019-07-09T12:57:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:web.runner.WebRunner@73ad2d6]" name="feature" duration-ms="7366" started-at="2019-07-09T12:57:46Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-07-09T12:57:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Basic Form Validation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:web.runner.WebRunner@73ad2d6]" name="tearDownClass" is-config="true" duration-ms="6" started-at="2019-07-09T12:57:54Z" finished-at="2019-07-09T12:57:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method status="PASS" signature="stopServer()[pri:0, instance:web.runner.WebRunner@73ad2d6]" name="stopServer" is-config="true" duration-ms="86" started-at="2019-07-09T12:57:54Z" finished-at="2019-07-09T12:57:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopServer -->
+      </class> <!-- web.runner.WebRunner -->
+    </test> <!-- Login to CRM -->
+  </suite> <!-- Web Test Suite -->
+</testng-results>
