@@ -1,0 +1,348 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "comments": [
+          {
+            "line": 3,
+            "value": "#  NOTE : YOU CAN RIGHT CLICK and RUN THE SCENARIOS DIRECTLY (if your IDE supports)"
+          },
+          {
+            "line": 5,
+            "value": "#  This demonstrates how you drive your test data within the scenarios as"
+          },
+          {
+            "line": 6,
+            "value": "#  inline strings and numbers"
+          },
+          {
+            "line": 7,
+            "value": "#  list of data items / single column data"
+          },
+          {
+            "line": 8,
+            "value": "#  Single record of key-value pairs"
+          }
+        ],
+        "line": 10,
+        "name": "ReqRes 1.0 - Get all the users",
+        "description": "",
+        "id": "a-rest-example-using-https://reqres.in/;reqres-1.0---get-all-the-users",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 81827571,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I have my \"ReqRes\" API with path \"LIST_USERS\" ready",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ReqRes",
+                  "offset": 11
+                },
+                {
+                  "val": "LIST_USERS",
+                  "offset": 34
+                }
+              ],
+              "location": "APISteps.iGetPathValues(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 864475,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I have the request headers defined as follows",
+            "match": {
+              "location": "APISteps.iGetHeaderValues(String,String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Content-Type",
+                  "application/json"
+                ],
+                "line": 13
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2864820935,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I send a GET request",
+            "match": {
+              "location": "APISteps.iSendAGetRequest()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2692480,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I verify the response status code as \"200\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 38
+                }
+              ],
+              "location": "APISteps.iVerifyTheResponse(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 17457059,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I verify that all users are displayed with below mandatory fields",
+            "match": {
+              "location": "ReqResSteps.iVerifyUsers(String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "id"
+                ],
+                "line": 17
+              },
+              {
+                "cells": [
+                  "first_name"
+                ],
+                "line": 18
+              },
+              {
+                "cells": [
+                  "last_name"
+                ],
+                "line": 19
+              },
+              {
+                "cells": [
+                  "avatar"
+                ],
+                "line": 20
+              }
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 9,
+            "name": "@smoke"
+          }
+        ]
+      }
+    ],
+    "name": "A REST Example using https://reqres.in/",
+    "description": "",
+    "id": "a-rest-example-using-https://reqres.in/",
+    "keyword": "Feature",
+    "uri": "ReqRes.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@reqres"
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "comments": [
+          {
+            "line": 3,
+            "value": "#  NOTE : YOU CAN RIGHT CLICK and RUN THE SCENARIOS DIRECTLY (if your IDE supports)"
+          },
+          {
+            "line": 5,
+            "value": "#  This demonstrates how you drive your test data within the scenarios as"
+          },
+          {
+            "line": 6,
+            "value": "#  inline strings and numbers"
+          },
+          {
+            "line": 7,
+            "value": "#  multiple records of key-value pairs"
+          },
+          {
+            "line": 8,
+            "value": "#  Note that this scenario may fail as the wind direction comparision fails if the value is different"
+          },
+          {
+            "line": 9,
+            "value": "#  If it fails, it gives you an idean on how the failures are handled and reported by Serenity"
+          }
+        ],
+        "line": 11,
+        "name": "Weather 1.0 - Get the weather condition of a city and verify te City name",
+        "description": "",
+        "id": "a-rest-example-using-http://restapi.demoqa.com-for-weather-information;weather-1.0---get-the-weather-condition-of-a-city-and-verify-te-city-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 278945,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I have my \"Weather\" API ready",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Weather",
+                  "offset": 11
+                }
+              ],
+              "location": "APISteps.iGetPathValues(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 87141,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I have the request headers defined as follows",
+            "match": {
+              "location": "APISteps.iGetHeaderValues(String,String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Content-Type",
+                  "application/json"
+                ],
+                "line": 14
+              },
+              {
+                "cells": [
+                  "Authorisation",
+                  "Jai_Bahubali Jai Chandra"
+                ],
+                "line": 15
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 82219,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I have the URL parameter as \"Chester\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Chester",
+                  "offset": 29
+                }
+              ],
+              "location": "APISteps.iHaveTeURLParam(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 670111164,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I send a GET request",
+            "match": {
+              "location": "APISteps.iSendAGetRequest()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 107956,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I verify the response status code as \"200\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 38
+                }
+              ],
+              "location": "APISteps.iVerifyTheResponse(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 4451305,
+              "error_message": "java.lang.AssertionError: \nExpected: with toString() \"320 Degree\"\n     but: toString() was \"340 Degree\"\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)\n\tat restful.step_definition.WeatherSteps.iVerifyResponseForWeatherInformation(WeatherSteps.java:25)\n\tat ✽.And I verify the response for chester weather(Weather.feature:19)\n",
+              "status": "failed"
+            },
+            "line": 19,
+            "name": "I verify the response for chester weather",
+            "match": {
+              "location": "WeatherSteps.iVerifyResponseForWeatherInformation(String,String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "City",
+                  "Chester"
+                ],
+                "line": 20
+              },
+              {
+                "cells": [
+                  "WindDirectionDegree",
+                  "320 Degree"
+                ],
+                "line": 21
+              }
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 10,
+            "name": "@smoke"
+          }
+        ]
+      }
+    ],
+    "name": "A REST Example using http://restapi.demoqa.com for weather information",
+    "description": "",
+    "id": "a-rest-example-using-http://restapi.demoqa.com-for-weather-information",
+    "keyword": "Feature",
+    "uri": "Weather.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@weather"
+      }
+    ]
+  }
+]
