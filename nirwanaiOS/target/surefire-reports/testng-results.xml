@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="iOS Test Suite" duration-ms="16188" started-at="2019-07-09T12:50:14Z" finished-at="2019-07-09T12:50:30Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="iOSRunner.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:ios.runner.iOSRunner@6325a3ee]" name="feature" class="ios.runner.iOSRunner"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="iOS Demo App" duration-ms="16188" started-at="2019-07-09T12:50:14Z" finished-at="2019-07-09T12:50:30Z">
+      <class name="ios.runner.iOSRunner">
+        <test-method status="PASS" signature="initializeiOSDriver()[pri:0, instance:ios.runner.iOSRunner@6325a3ee]" name="initializeiOSDriver" is-config="true" duration-ms="20587" started-at="2019-07-09T12:49:53Z" finished-at="2019-07-09T12:50:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeiOSDriver -->
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:ios.runner.iOSRunner@6325a3ee]" name="setUpClass" is-config="true" duration-ms="113" started-at="2019-07-09T12:50:14Z" finished-at="2019-07-09T12:50:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:ios.runner.iOSRunner@6325a3ee]" name="feature" duration-ms="15993" started-at="2019-07-09T12:50:14Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-07-09T12:50:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Browserstack demo sample application]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:ios.runner.iOSRunner@6325a3ee]" name="tearDownClass" is-config="true" duration-ms="7" started-at="2019-07-09T12:50:30Z" finished-at="2019-07-09T12:50:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method status="PASS" signature="stopServer()[pri:0, instance:ios.runner.iOSRunner@6325a3ee]" name="stopServer" is-config="true" duration-ms="800" started-at="2019-07-09T12:50:30Z" finished-at="2019-07-09T12:50:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopServer -->
+      </class> <!-- ios.runner.iOSRunner -->
+    </test> <!-- iOS Demo App -->
+  </suite> <!-- iOS Test Suite -->
+</testng-results>

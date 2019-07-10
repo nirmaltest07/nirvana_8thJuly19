@@ -1,0 +1,130 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Performing action on the Browserstack demo application",
+        "description": "",
+        "id": "browserstack-demo-sample-application;performing-action-on-the-browserstack-demo-application",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2759352194,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user is already on Home Screen",
+            "match": {
+              "location": "BrowserstackDemoApp.user_already_on_home_screen()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1840617852,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user clicks on \"Alert\" button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Alert",
+                  "offset": 16
+                }
+              ],
+              "location": "BrowserstackDemoApp.user_clicks_on_button(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2252077218,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user verifies alert text",
+            "match": {
+              "location": "BrowserstackDemoApp.user_verifies_text()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2046173951,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user dismiss the alert",
+            "match": {
+              "location": "BrowserstackDemoApp.user_dismiss_the_alert()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1944397919,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user clicks on \"Text\" button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Text",
+                  "offset": 16
+                }
+              ],
+              "location": "BrowserstackDemoApp.user_clicks_on_button(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1228566104,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user verifies input label",
+            "match": {
+              "location": "BrowserstackDemoApp.user_verifies_text_input_label()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3889959719,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "user enters text as \"This is automation sample test\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "This is automation sample test",
+                  "offset": 21
+                }
+              ],
+              "location": "BrowserstackDemoApp.user_enters_text(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 3,
+            "name": "@ios"
+          }
+        ]
+      }
+    ],
+    "name": "Browserstack demo sample application",
+    "description": "",
+    "id": "browserstack-demo-sample-application",
+    "keyword": "Feature",
+    "uri": "BrowserstackDemoApp.feature"
+  }
+]
