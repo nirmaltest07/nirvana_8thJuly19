@@ -4,10 +4,12 @@ node{
     }
    
 
-dir("nirwanaWeb") {
-    sh "pwd"
-}
+
     stage('Compile-Package'){
+      dir("nirwanaWeb") 
+      {
+    sh "pwd"    
+      }
     def mvnHome = tool name: 'Maven 3.6.1', type: 'maven'
       sh "${mvnHome}/bin/mvn package"
     }
