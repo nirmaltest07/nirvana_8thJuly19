@@ -1,10 +1,9 @@
     
-node{
-  stage('SCM Checkout') {
-    git 'https://github.com/nirmaltest07/nirvana_8thJuly19'
-    }
-    stage('Compile-Package'){
-    def mvnHome = tool name: 'Maven 3.6.1', type: 'maven'
-      sh "${mvnHome}/bin/mvn package"
-    }
-}
+
+checkout([$class: 'GitSCM', 
+    branches: [[name: 'https://github.com/nirmaltest07/nirvana_8thJuly19']],
+    doGenerateSubmoduleConfigurations: false,
+    extensions: [
+        [$class: 'SparseCheckoutPaths',  sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path:'https://github.com/nirmaltest07/nirvana_8thJuly19/nirwanaWeb']]]
+                ],
+   
