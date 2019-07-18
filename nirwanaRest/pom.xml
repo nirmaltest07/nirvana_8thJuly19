@@ -144,11 +144,11 @@
 				<configuration>
 					<suiteXmlFiles>
 						<suiteXmlFile>restAssured/restsuite.xml</suiteXmlFile>
-						<suiteXmlFile>soapuiautomation/soapsuite.xml</suiteXmlFile>
+						<!-- <suiteXmlFile>soapuiautomation/soapsuite.xml</suiteXmlFile>
 						<suiteXmlFile>webautomation/websuite.xml</suiteXmlFile>
 						<suiteXmlFile>iosautomation/iossuite.xml</suiteXmlFile>
 						<suiteXmlFile>androidautomation/androidsuite.xml</suiteXmlFile>
-						<suiteXmlFile>pactautomation/pactsuite.xml</suiteXmlFile>
+						<suiteXmlFile>pactautomation/pactsuite.xml</suiteXmlFile> -->
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

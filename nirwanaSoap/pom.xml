@@ -143,12 +143,7 @@
 				<version>3.0.0-M3</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>restAssured/restsuite.xml</suiteXmlFile>
 						<suiteXmlFile>soapuiautomation/soapsuite.xml</suiteXmlFile>
-						<suiteXmlFile>webautomation/websuite.xml</suiteXmlFile>
-						<suiteXmlFile>iosautomation/iossuite.xml</suiteXmlFile>
-						<suiteXmlFile>androidautomation/androidsuite.xml</suiteXmlFile>
-						<suiteXmlFile>pactautomation/pactsuite.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
