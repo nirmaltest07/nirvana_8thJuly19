@@ -1,0 +1,14 @@
+node{
+  stage('SCM Checkout') {
+    git 'https://github.com/nirmaltest07/nirvana_8thJuly19'
+    }
+   
+
+
+    stage('Compile-Package'){
+      sh "cd /Users/atom4/.jenkins/workspace/NirwanaWebModule/nirwanaWeb"
+    def mvnHome = tool name: 'Maven 3.6.1', type: 'maven'
+      sh "mvn package"
+    }
+}
+   
