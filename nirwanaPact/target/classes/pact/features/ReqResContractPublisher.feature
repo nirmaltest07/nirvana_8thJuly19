@@ -38,7 +38,7 @@ Feature: Cigniti Contracts - Consumer Publishing the Contracts for ReqRes API
     Given I have the path as "/api/users"
     And I have the request headers defined as follows
       | Content-Type | application/json |
-    And I have the request body defined in "resources/user_details.json"
+    And I have the request body defined in "pactautomation/pact/resources/user_details.json"
     And I have the below pact parameters
       | providerName    | ReqRes1           |
       | consumerName    | Cigniti1          |
