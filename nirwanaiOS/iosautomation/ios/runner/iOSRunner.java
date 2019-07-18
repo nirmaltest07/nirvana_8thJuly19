@@ -3,51 +3,24 @@ package ios.runner;
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 import common.resources.CignitiProperties;
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.CucumberFeatureWrapper;
-import cucumber.api.testng.TestNGCucumberRunner;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(features = "iosautomation/ios/features", tags = { "@ios" }, monochrome = true, plugin = {
-		"pretty", "html:target/cucumber-report/runwebat", "json:target/cucumber-report/runwebat/cucumber.json",
-		"rerun:target/cucumber-report/runwebat/rerun.txt" }, glue = { "ios/step_definition" }
+@CucumberOptions(features = "iosautomation/ios/features", tags = { "@ios" }, monochrome = true, plugin = { "pretty",
+		"html:target/cucumber-report/iosresult", "json:target/cucumber-report/iosresult.json",
+		"rerun:target/iosrerun.txt" }, glue = { "ios/step_definition" }
 
 )
-public class iOSRunner {
+public class iOSRunner extends AbstractTestNGCucumberTests{
 
-	private TestNGCucumberRunner testNGCucumberRunner;
 	static CignitiProperties properties;
-
-	@BeforeClass(alwaysRun = true)
-	public void setUpClass() throws Exception {
-		testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
-	}
-
-	@Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "features")
-	public void feature(CucumberFeatureWrapper cucumberFeature) {
-		testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
-	}
-
-	@DataProvider
-	public Object[][] features() {
-		return testNGCucumberRunner.provideFeatures();
-	}
-
-	@AfterClass(alwaysRun = true)
-	public void tearDownClass() throws Exception {
-		testNGCucumberRunner.finish();
-	}
-
 	static ThreadLocal<AppiumDriverLocalService> service = new ThreadLocal<>();
 	static AppiumDriver<MobileElement> appiumDriver = null;
 

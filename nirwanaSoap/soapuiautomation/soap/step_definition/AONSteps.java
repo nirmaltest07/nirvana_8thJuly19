@@ -2,11 +2,9 @@ package soap.step_definition;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import org.testng.Assert;
-
 import common.utilities.JSONHelper;
 import common.utilities.RESTAssuredAPI;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.When;
 
 public class AONSteps {
 

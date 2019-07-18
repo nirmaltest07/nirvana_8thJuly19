@@ -6,58 +6,31 @@ import java.net.URL;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 import common.resources.CignitiProperties;
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.CucumberFeatureWrapper;
-import cucumber.api.testng.TestNGCucumberRunner;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "androidautomation/android/features", tags = { "@android" }, monochrome = true, plugin = {
-		"pretty", "html:target/cucumber-report/runwebat", "json:target/cucumber-report/runwebat/cucumber.json",
-		"rerun:target/cucumber-report/runwebat/rerun.txt" }, glue = { "android/step_definition" }
+		"pretty", "html:target/cucumber-report/androidresult", "json:target/cucumber-report/androidresult.json",
+		"rerun:target/androidrerun.txt" }, glue = { "android/step_definition" }
 
 )
-public class AndroidRunner {
+public class AndroidRunner extends AbstractTestNGCucumberTests {
 
-	private TestNGCucumberRunner testNGCucumberRunner;
 	static CignitiProperties properties;
 	DesiredCapabilities capabilities;
 	static AppiumDriver<MobileElement> androidDriver = null;
 	static ThreadLocal<AppiumDriverLocalService> service = new ThreadLocal<>();
 	// static ThreadLocal<AppiumDriver> androidDriver = new ThreadLocal<>();
-
-	@BeforeClass(alwaysRun = true)
-	public void setUpClass() throws Exception {
-		testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
-	}
-
-	@Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "features")
-	public void feature(CucumberFeatureWrapper cucumberFeature) {
-		testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
-	}
-
-	@DataProvider
-	public Object[][] features() {
-		return testNGCucumberRunner.provideFeatures();
-	}
-
-	@AfterClass(alwaysRun = true)
-	public void tearDownClass() throws Exception {
-		testNGCucumberRunner.finish();
-	}
 
 	public AppiumDriver<MobileElement> getDriver() {
 		return androidDriver;
@@ -84,7 +57,6 @@ public class AndroidRunner {
 			 */
 
 			AppiumServiceBuilder appiumServiceBuilder = new AppiumServiceBuilder()
-					//.withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
 					.withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
 					.withIPAddress("127.0.0.1");
 			service.set(appiumServiceBuilder.build());

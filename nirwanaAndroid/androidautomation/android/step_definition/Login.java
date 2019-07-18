@@ -1,11 +1,16 @@
 package android.step_definition;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.remote.ScreenshotException;
 import org.testng.Assert;
 
 import android.screens.HomePage;
 import android.screens.LoginPage;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.core.api.Scenario;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class Login {
 	LoginPage loginPage = new LoginPage();
@@ -41,4 +46,13 @@ public class Login {
 		homePage.getBtnLogout().click();
 	}
 
+	@AfterStep
+	public void afterStep(Scenario scenario) {
+		try {
+			final byte[] screenshot = ((TakesScreenshot) loginPage.getDriver()).getScreenshotAs(OutputType.BYTES);
+			scenario.embed(screenshot, "image/png");
+		} catch (ScreenshotException se) {
+			se.getMessage();
+		}
+	}
 }

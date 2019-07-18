@@ -1,18 +1,13 @@
 package pact.runner;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(features = "soapuiautomation/soap/features"
-, tags = {"~@ignore"}
-, monochrome = true
-, plugin = {  "pretty", "html:target/cucumber-report/runwebat",
-        "json:target/cucumber-report/runwebat/cucumber.json",
-        "rerun:target/cucumber-report/runwebat/rerun.txt"}
-, glue = {"soap/step_definition"}
+@CucumberOptions(features = "pactautomation/pact/features", tags = { "not @ignore" }, monochrome = true, plugin = {
+		"pretty", "html:target/cucumber-report/pactresult", "json:target/cucumber-report/pactresult.json",
+		"rerun:target/pactrerun.txt" }, glue = { "pact/step_definition" }
 
 )
-public class TestRunner extends AbstractTestNGCucumberTests{
-	
-	
+public class TestRunner extends AbstractTestNGCucumberTests {
+
 }

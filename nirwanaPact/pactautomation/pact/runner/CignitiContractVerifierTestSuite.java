@@ -3,16 +3,17 @@ package pact.runner;
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.junit.runner.RunWith;
-import au.com.dius.pact.consumer.PactFolder;
 import au.com.dius.pact.provider.junit.Provider;
 import au.com.dius.pact.provider.junit.State;
+import au.com.dius.pact.provider.junit.target.HttpTarget;
 import au.com.dius.pact.provider.junit.target.Target;
 import au.com.dius.pact.provider.junit.target.TestTarget;
 import common.resources.CignitiProperties;
+import au.com.dius.pact.provider.junit.PactRunner;
 
 @RunWith(PactRunner.class)
 @Provider("ReqRes")
-@PactFolder("target/pacts")
+@au.com.dius.pact.provider.junit.loader.PactFolder("target/pacts")
 
 /**
  * This will verify the pact created by a consumer This can be executed all

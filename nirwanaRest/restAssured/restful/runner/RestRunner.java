@@ -1,14 +1,14 @@
 package restful.runner;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "restAssured/restful/features"
 , tags = {"@smoke"}
 , monochrome = true
-, plugin = {  "pretty", "html:target/cucumber-report/runwebat",
-        "json:target/cucumber-report/runwebat/cucumber.json",
-        "rerun:target/cucumber-report/runwebat/rerun.txt"}
+, plugin = {  "pretty", "html:target/cucumber-report/restresult",
+        "json:target/cucumber-report/restresult.json",
+        "rerun:target/restrerun.txt"}
 , glue = {"restful/step_definition"}
 
 )

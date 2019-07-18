@@ -1,4 +1,4 @@
-package soap.step_definition;
+package pact.step_definition;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;

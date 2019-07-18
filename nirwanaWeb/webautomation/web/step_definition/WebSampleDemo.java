@@ -1,9 +1,16 @@
 package web.step_definition;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.remote.ScreenshotException;
 import org.testng.Assert;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
+import io.cucumber.core.api.Scenario;
+import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import web.pages.WebSampleDemoPage;
 
 public class WebSampleDemo {
@@ -26,7 +33,7 @@ public class WebSampleDemo {
 
 	@Then("^user verifies the entered message$")
 	public void user_verifies_the_entered_message() throws Throwable {
-		Assert.assertTrue(webSamplePage.getLblMessage().isDisplayed());
+		Assert.assertFalse(webSamplePage.getLblMessage().isDisplayed());
 	}
 
 	@When("^user enters \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -45,4 +52,14 @@ public class WebSampleDemo {
 		Assert.assertTrue(webSamplePage.getLblTotal().isDisplayed());
 	}
 
+	@AfterStep
+	public void afterStep(Scenario scenario) {
+		try {
+			final byte[] screenshot = ((TakesScreenshot) webSamplePage.getWebDriver())
+					.getScreenshotAs(OutputType.BYTES);
+			scenario.embed(screenshot, "image/png");
+		} catch (ScreenshotException se) {
+			se.getMessage();
+		}
+	}
 }

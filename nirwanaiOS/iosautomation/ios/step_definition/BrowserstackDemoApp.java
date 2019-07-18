@@ -1,10 +1,15 @@
 package ios.step_definition;
 
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.remote.ScreenshotException;
 import org.testng.Assert;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
+import io.cucumber.core.api.Scenario;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import ios.screens.BrowserstackScreen;
 
 public class BrowserstackDemoApp {
@@ -44,4 +49,14 @@ public class BrowserstackDemoApp {
 		Assert.assertEquals(browserStackDemo.getInputTextLabel().getText(), "Waiting for text input.");
 	}
 
+	@AfterStep
+	public void afterStep(Scenario scenario) {
+		try {
+			final byte[] screenshot = ((TakesScreenshot) browserStackDemo.getDriver())
+					.getScreenshotAs(OutputType.BYTES);
+			scenario.embed(screenshot, "image/png");
+		} catch (ScreenshotException se) {
+			se.getMessage();
+		}
+	}
 }

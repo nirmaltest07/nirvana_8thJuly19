@@ -2,55 +2,33 @@ package web.runner;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterClass;
+import org.openqa.selenium.remote.ScreenshotException;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 import common.resources.CignitiProperties;
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.AbstractTestNGCucumberTests;
-import cucumber.api.testng.CucumberFeatureWrapper;
-import cucumber.api.testng.TestNGCucumberRunner;
+import io.cucumber.core.api.Scenario;
+import io.cucumber.java.Before;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-@CucumberOptions(features = "webautomation/web/features", tags = { "~@Ignore" }, monochrome = true, plugin = { "pretty",
-		"html:target/cucumber-report/runwebat", "json:target/cucumber-report/runwebat/cucumber.json",
-		"rerun:target/cucumber-report/runwebat/rerun.txt" }, glue = { "web/step_definition" }
+@CucumberOptions(features = "webautomation/web/features", tags = { "not @Ignore" }, monochrome = true, plugin = { "pretty",
+		"html:target/cucumber-report/webresult", "json:target/cucumber-report/webresult.json",
+		"rerun:target/webrerun.txt" }, glue = { "web/step_definition" }
 
 )
-public class WebRunner {
+public class WebRunner extends AbstractTestNGCucumberTests {
 
-	private TestNGCucumberRunner testNGCucumberRunner;
 	static CignitiProperties properties;
 	static WebDriver webDriver = null;
 	DesiredCapabilities capabilities;
-
-	@BeforeClass(alwaysRun = true)
-	public void setUpClass() throws Exception {
-		testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
-	}
-
-	@Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "features")
-	public void feature(CucumberFeatureWrapper cucumberFeature) {
-		testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
-	}
-
-	@DataProvider
-	public Object[][] features() {
-		return testNGCucumberRunner.provideFeatures();
-	}
-
-	@AfterClass(alwaysRun = true)
-	public void tearDownClass() throws Exception {
-		testNGCucumberRunner.finish();
-	}
 
 	public WebDriver getWebDriver() {
 		return webDriver;
@@ -64,7 +42,7 @@ public class WebRunner {
 		String accessKey = properties.getProperty("accessKey");
 		String browserName = properties.getProperty("browserName");
 		String webPlatform = properties.getProperty("webPlatform");
-		String runOn = properties.getProperty("runOn");
+		String runOn = properties.getProperty("webRunAs");
 
 		capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName(browserName);
@@ -93,5 +71,27 @@ public class WebRunner {
 		if (webDriver != null) {
 			webDriver.quit();
 		}
+	}
+
+	public void takeScreenshot(Scenario scenario) {
+		try {
+			final byte[] screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
+			scenario.embed(screenshot, "image/png"); // ... and embed it in the
+														// report.
+		} catch (ScreenshotException se) {
+			se.getMessage();
+		}
+	}
+
+	
+	@Before
+	public void beforeStep(){
+		System.out.println("------------ Before Step");
+	}
+
+	@Override
+	@DataProvider(parallel = true)
+	public Object[][] scenarios() {
+		return super.scenarios();
 	}
 }

@@ -3,15 +3,17 @@ package pact.runner;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.junit.Assert;
 import org.junit.Rule;
-import org.junit.Test;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import au.com.dius.pact.consumer.Pact;
 import au.com.dius.pact.consumer.PactProviderRuleMk2;
@@ -44,7 +46,7 @@ public class CignitiContractPublisherTestSuite {
 		Map<String, String> headers = new HashMap<>();
 		headers.put("Content-Type", "application/json");
 
-		String bodyPath = "resources/user_details.json";
+		String bodyPath = "pactautomation/pact/resources/user_details.json";
 		String contractInteractionName = bodyPath.substring(bodyPath.lastIndexOf("/") + 1, bodyPath.indexOf("."));
 
 		try {

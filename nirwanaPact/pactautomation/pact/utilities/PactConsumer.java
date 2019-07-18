@@ -5,16 +5,17 @@ import au.com.dius.pact.consumer.PactVerificationResult;
 import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslRequestWithPath;
 import au.com.dius.pact.consumer.dsl.PactDslResponse;
-import au.com.dius.pact.consumer.model.MockProviderConfig;
+import au.com.dius.pact.model.MockProviderConfig;
 import au.com.dius.pact.model.RequestResponsePact;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.util.EntityUtils;
-import org.testng.Assert;
+import org.junit.Assert;
 import java.util.Map;
 import java.util.Set;
 import static au.com.dius.pact.consumer.ConsumerPactRunnerKt.runConsumerTest;
 import static org.apache.http.entity.ContentType.APPLICATION_JSON;
+
 
 public class PactConsumer {
     RequestResponsePact pact;

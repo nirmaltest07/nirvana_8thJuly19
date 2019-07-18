@@ -2,7 +2,6 @@ package web.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import web.runner.WebRunner;
 
 public class WebSampleDemoPage extends WebRunner {
